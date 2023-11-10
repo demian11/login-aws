@@ -12,7 +12,7 @@ const [errorMessage,setErrorMessage] =useState(null);
 const submitHandler =(event)=>{
     event.preventDefault();
    if (username.trim() === '' || password.trim()=== ''){
-    setErrorMessage('Both isername and apassword are required');
+    setErrorMessage('Both isername and password are required');
 return;
 }
 
