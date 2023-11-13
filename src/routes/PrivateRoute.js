@@ -1,5 +1,5 @@
 import React from "react";
-import{Navigate,Route} from 'react-router-dom';
+import{Redirect,Route} from 'react-router-dom';
 import { getToken } from "../service/AuthService";
 
 const PrivateRoute =({ component: Component, ...rest}) => {
@@ -8,7 +8,7 @@ const PrivateRoute =({ component: Component, ...rest}) => {
         {...rest}
         render={props => {
             return getToken() ? <Component {...props}/>
-            : <Navigate to={{pathname: '/login'}}/>
+            : <Redirect to={{pathname: '/login'}}/>
         }}
         />
     )

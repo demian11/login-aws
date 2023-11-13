@@ -1,4 +1,4 @@
-import { BrowserRouter, NavLink, Route, Switch, Routes } from "react-router-dom";
+import {BrowserRouter, NavLink, Route, Switch} from "react-router-dom";
 
 import Home from "./Home"
 import Register from "./Register"
@@ -58,12 +58,12 @@ function App() {
         </div>
         <div className="content">
 
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/register/*" element={<PublicRoute />} />
-            <Route path="/login/*" element={<PublicRoute />} />
-            <Route path="/premium-content/*" element={<PrivateRoute />} />
-          </Routes>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route  path="/register" component={Register} />
+            <PublicRoute  path="/login" component={Login} />
+            <PrivateRoute path="/premium-content" component={PremiumContent} />
+          </Switch>
         </div>
       </BrowserRouter>
     </div>

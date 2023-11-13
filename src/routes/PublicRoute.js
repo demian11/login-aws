@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import{Navigate,Routes} from 'react-router-dom';
+import React from "react";
+import{Redirect,Route} from 'react-router-dom';
 import { getToken } from "../service/AuthService";
 
 const PublicRoute = ({ component: Component, ...rest}) => {
     return(
-        <Routes
+        <Route
         {...rest}
         render={props => {
             return !getToken() ? <Component {...props}/>
-            : <Navigate to={{pathname: '/premium-content'}}/>
+            : <Redirect to={{pathname: '/premium-content'}}/>
         }}
         />
     )
