@@ -10,7 +10,7 @@ import React, { useState, useEffect } from "react";
 import { getUser, getToken, setUserSession, resetUserSession } from "./service/AuthService";
 import axios from "axios";
 
-const verifyTokenAPIURL = 'https://pu0xnsorsj.execute-api.us-west-2.amazonaws.com/prueba/verify';
+const verifyTokenAPIURL = 'https://pu0xnsorsj.execute-api.us-west-2.amazonaws.com/prueba/register';
 
 function App() {
 
@@ -32,8 +32,8 @@ function App() {
       token: token
     }
 
-    axios.post(verifyTokenAPIURL, requestBody, requestConfig).then(Response => {
-      setUserSession(Response.data.user, Response.data.token);
+    axios.post(verifyTokenAPIURL, requestBody, requestConfig).then(response => {
+      setUserSession(response.data.user, response.data.token);
       setAuthenicating(false);
     }).catch(() => {
       resetUserSession();
@@ -60,9 +60,9 @@ function App() {
 
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/register/" element={<PublicRoute />} />
-            <Route path="/login/" element={<PublicRoute />} />
-            <Route path="/premium-content/" element={<PrivateRoute />} />
+            <Route path="/register/*" element={<PublicRoute />} />
+            <Route path="/login/*" element={<PublicRoute />} />
+            <Route path="/premium-content/*" element={<PrivateRoute />} />
           </Routes>
         </div>
       </BrowserRouter>

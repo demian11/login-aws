@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-const registerUrl = 'https://pu0xnsorsj.execute-api.us-west-2.amazonaws.com/prueba/register';
 
+const registerUrl = 'https://pu0xnsorsj.execute-api.us-west-2.amazonaws.com/prueba/register';
 
 const Register = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [messege, setMessege] = useState(null);
+    const [messege, setMessage] = useState(null);
 
     const submitHandler = (event) => {
         event.preventDefault();
         if (username.trim() === '' || email.trim() === '' || name.trim() === '' || password.trim() === '') {
-            setMessege('All fields are required');
+            setMessage('All fields are required');
             return;
         }
 
-        setMessege(null);
+        setMessage(null);
         const requestConfig = {
             headers: {
                 'x-api-key': 'teunRcvUeK2ejZP5OaRMH4nfOpNTHKwL5GYNwM2S'
@@ -30,12 +30,12 @@ const Register = () => {
             password: password
         }
         axios.post(registerUrl, requestBody, requestConfig).then(response => {
-            setMessege('Registeration Successful');
+            setMessage('Registeration Successful');
         }).catch(error => {
             if (error.response.status === 401) {
-                setMessege(error.response.data.message);
+                setMessage(error.response.data.message);
             } else {
-                setMessege('sorry...the backend server is down! please try again later')
+                setMessage('sorry...the backend server is down! please try again later')
             }
         })
     }

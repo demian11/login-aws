@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import{Navigate,Route} from 'react-router-dom';
 import { getToken } from "../service/AuthService";
 
-const PrivateRoute =({ component: Component, ...rest})=>{
+const PrivateRoute =({ component: Component, ...rest}) => {
     return(
         <Route
         {...rest}

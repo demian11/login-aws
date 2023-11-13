@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import{Navigate,Routes} from 'react-router-dom';
 import { getToken } from "../service/AuthService";
 
-const PublicRoute =({ component: Component, ...rest})=>{
+const PublicRoute = ({ component: Component, ...rest}) => {
     return(
         <Routes
         {...rest}

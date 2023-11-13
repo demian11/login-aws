@@ -15,8 +15,9 @@ const PremiumContent = (props)  => {
     return (
         <div>
             Hola {name}, haz iniciado sesion, esta es la pagina premium
-            <input type="button" value="/Logiut" onClick={logoutHandler}/>
+            <input type="button" value="/Logout" onClick={logoutHandler}/>
         </div>
     )
 }
+
 export default PremiumContent;

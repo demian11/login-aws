@@ -9,7 +9,7 @@ const [username, setUsername] = useState('');
 const [password, setPassword] = useState('');
 const [errorMessage,setErrorMessage] =useState(null);
 
-const submitHandler =(event)=>{
+const submitHandler = (event) => {
     event.preventDefault();
    if (username.trim() === '' || password.trim()=== ''){
     setErrorMessage('Both isername and password are required');
@@ -45,7 +45,7 @@ axios.post(loginAPIUrl,requestBody,requestConfig).then((response)=>{
             <form onSubmit={submitHandler}>
             <h5>Login</h5>
             username: <input type="text" value={username} onChange={event => setUsername(event.target.value)}/><br/>
-            password: <input type="text" value={password} onChange={event => setPassword(event.target.value)}/><br/>
+            password: <input type="password" value={password} onChange={event => setPassword(event.target.value)}/><br/>
             <input type="submit" value="Login" />
           </form>
           {errorMessage && <p className='messege'>{setErrorMessage }</p>}
