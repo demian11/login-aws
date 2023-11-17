@@ -28,10 +28,10 @@ const requestBody ={
     password:password
 }
 
-axios.post(loginAPIUrl,requestBody,requestConfig).then((response)=>{
+axios.post(loginAPIUrl, requestBody, requestConfig).then((response) => {
  setUserSession(response.data.user, response.data.token);
  props.history.push('/premium-content');
-}).catch((error)=> {
+}).catch((error) => {
     if(error.response.status === 401 || error.response.status ===403){
         setErrorMessage(error.response.data.message);
     }else{
@@ -48,7 +48,7 @@ axios.post(loginAPIUrl,requestBody,requestConfig).then((response)=>{
             password: <input type="password" value={password} onChange={event => setPassword(event.target.value)}/><br/>
             <input type="submit" value="Login" />
           </form>
-          {errorMessage && <p className='messege'>{setErrorMessage }</p>}
+          {errorMessage && <p className='messege'>{errorMessage}</p>}
         </div>
        
     )

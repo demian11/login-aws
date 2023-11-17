@@ -10,7 +10,7 @@ import React, { useState, useEffect } from "react";
 import { getUser, getToken, setUserSession, resetUserSession } from "./service/AuthService";
 import axios from "axios";
 
-const verifyTokenAPIURL = 'https://pu0xnsorsj.execute-api.us-west-2.amazonaws.com/prueba/register';
+const verifyTokenAPIURL = 'https://pu0xnsorsj.execute-api.us-west-2.amazonaws.com/prueba/verify';
 
 function App() {
 
